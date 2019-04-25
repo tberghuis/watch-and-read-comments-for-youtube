@@ -46,11 +46,14 @@ export default App;
 <style>
 #warc-resize-bar {
   position: fixed;
-  width: 2px;
+  width: 30px;
   background-color: black;
   left: 500px;
   top: 0;
   bottom: 0;
+}
+#warc-resize-bar:hover {
+  cursor: ew-resize;
 }
 
 #player-container-outer.ytd-watch-flexy {

@@ -1,0 +1,120 @@
+
+#primary.ytd-watch-flexy,
+#secondary.ytd-watch-flexy {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#primary-inner.ytd-watch-flexy,
+#secondary-inner.ytd-watch-flexy {
+  width: var(--ytwarc-sidebar-width) !important;
+  margin-left: auto !important;
+  margin-right: var(--ytwarc-margin) !important;
+}
+
+/* stick my variables on body */
+
+/* that way inherited by everything */
+
+/* prob bad practice */
+
+body {
+  /* this will be overriden as a style attribute on resize */
+  --ytwarc-player-container-width: 50vw;
+  /* be careful with inherted percentage in css vars */
+  --ytwarc-non-player-width: calc(100% - var(--ytwarc-player-container-width));
+  --ytwarc-margin: 24px;
+  --ytwarc-sidebar-width: calc(var(--ytwarc-non-player-width) - 2px - (4 * var(--ytwarc-margin)));
+}
+
+.ytwarc-homepage #ytwarc-resizer-bar,
+.ytwarc-homepage #ytwarc-tab-headings {
+  display: none;
+}
+
+#ytwarc-resizer-bar {
+  position: fixed;
+  left: calc(2 * var(--ytwarc-margin) + var(--ytwarc-player-container-width));
+  top: 56px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--yt-spec-text-secondary);
+}
+
+#ytwarc-resizer-bar[dragging] {
+  opacity: 0.5;
+  margin-left: -4px;
+  width: 10px;
+  background-color: yellow;
+}
+
+#ytwarc-resizer-bar>div {
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 100%;
+}
+
+#ytwarc-resizer-bar>div:hover {
+  cursor: ew-resize;
+}
+
+#ytwarc-tab-headings {
+  position: fixed;
+  display: flex;
+  right: var(--ytwarc-margin);
+  width: var(--ytwarc-sidebar-width);
+  top: 56px;
+  background: var(--yt-app-background);
+}
+
+#ytwarc-tab-headings:after {
+  content: '';
+  flex-grow: 1;
+  border-bottom: 2px solid var(--yt-spec-text-secondary);
+}
+
+#ytwarc-tab-headings>div {
+  width: 150px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-bottom: 2px solid var(--yt-spec-text-secondary);
+  /* actual height 44px */
+  height: 40px;
+  line-height: 40px;
+  margin-top: var(--ytwarc-margin);
+  font-size: 1.5rem;
+  color: var(--yt-spec-text-primary);
+}
+
+#ytwarc-tab-headings>div[active] {
+  border: 2px solid var(--yt-spec-text-secondary);
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+}
+
+#ytwarc-tab-headings>div:hover {
+  cursor: pointer;
+}
+
+.ytwarc-tab-info,
+.ytwarc-tab-comments,
+.ytwarc-tab-other,
+#related#related.ytd-watch-flexy {
+  /* hidden by default, can't use display none as content will not load */
+  height: 0;
+  overflow: hidden;
+}
+
+.ytwarc-tab-info[active],
+.ytwarc-tab-comments[active],
+.ytwarc-tab-other[active] {
+  height: auto;
+}
+
+/* work around chat frame inserted into dom at unknown time and can be shifted on observe of isTwoColumns_ desktop_polymer.js */
+ytd-live-chat-frame#chat#chat {
+  display: none;
+}
