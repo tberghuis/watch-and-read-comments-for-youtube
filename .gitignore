@@ -1,3 +1,4 @@
-node_modules/
-dist-dev/
-dist-prod/
+/node_modules/
+/dist-dev/
+/dist-prod/
+/untracked/
