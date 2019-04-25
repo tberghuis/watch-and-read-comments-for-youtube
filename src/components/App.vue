@@ -2,7 +2,6 @@
   <div id="warc-app">
     <div id="warc-resize-bar" v-bind:style="resizebarStyle"></div>
     <div v-html="appStyles"></div>
-    <div v-html="fixedStyles"></div>
   </div>
 </template>
 
@@ -10,19 +9,10 @@
 import domElementsPromise from "../dom-element-dependencies";
 import Vue from "vue";
 
-const fixedStyles = `
-  <style>
-    #player-container-outer.ytd-watch-flexy {
-      min-width: 0 !important;
-    }
-  </style>
-`;
-
 const App = {
   data: function() {
     return {
-      width: 500,
-      fixedStyles
+      width: 500
     };
   },
   created: function() {
@@ -61,5 +51,9 @@ export default App;
   left: 500px;
   top: 0;
   bottom: 0;
+}
+
+#player-container-outer.ytd-watch-flexy {
+  min-width: 0 !important;
 }
 </style>
