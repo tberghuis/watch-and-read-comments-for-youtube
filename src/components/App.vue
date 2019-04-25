@@ -1,6 +1,6 @@
 <template>
   <div id="warc-app">
-    <div id="warc-resize-bar"></div>
+    <div id="warc-resize-bar" v-bind:style="resizebarStyle"></div>
     <div v-html="appStyles"></div>
     <div v-html="fixedStyles"></div>
   </div>
@@ -39,16 +39,13 @@ const App = {
           #player.ytd-watch-flexy {
             width: ${this.width}px;
           }
-          #warc-resize-bar {
-            position: fixed;
-            width: 2px;
-            background-color: black;
-            left: 500px;
-            top: 0;
-            bottom: 0;
-          }
         </style>
       `;
+    },
+    resizebarStyle: function() {
+      return {
+        left: `${this.width}px`
+      };
     }
   }
 };
@@ -57,4 +54,12 @@ export default App;
 </script>
 
 <style>
+#warc-resize-bar {
+  position: fixed;
+  width: 2px;
+  background-color: black;
+  left: 500px;
+  top: 0;
+  bottom: 0;
+}
 </style>
