@@ -13,23 +13,11 @@ import setupResizebarDrag from "../lib/setup-resizebar-drag";
 const App = {
   data: function() {
     return {
-      width: 500,
-      resizebarLeft: 500
+      resizebarLeft: 500,
+      playerWidth: 500 - 48
     };
   },
-  // beforeCreate: function() {
-  //   console.log("beforeCreate", JSON.parse(JSON.stringify(this.$refs)));
-  // },
-  // created: function() {
-  //   console.log("created", JSON.parse(JSON.stringify(this.$refs)));
-  // },
-  // beforeMount: function() {
-  //   console.log("beforeMount", JSON.parse(JSON.stringify(this.$refs)));
-  // },
   mounted: function() {
-    // console.log("mounted", JSON.parse(JSON.stringify(this.$refs.resizeBar)));
-    // console.log("mounted", this.$refs.resizeBar);
-    // console.log("addEventListener", this.$refs.resizeBar.addEventListener);
     setupResizebarDrag(this.$refs.resizeBar, this);
     window._APP = this;
   },
@@ -42,7 +30,7 @@ const App = {
       return `
         <style>
           #player.ytd-watch-flexy {
-            width: ${this.width}px;
+            width: ${this.playerWidth}px;
           }
         </style>
       `;
@@ -52,6 +40,9 @@ const App = {
         left: `${this.resizebarLeft}px`
       };
     }
+    // playerWidth: function() {
+    //   return this.resizebarLeft - 48;
+    // }
   }
 };
 
