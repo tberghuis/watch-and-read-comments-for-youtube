@@ -32,6 +32,9 @@ const App = {
           #player.ytd-watch-flexy {
             width: ${this.playerWidth}px;
           }
+          #primary-inner.ytd-watch-flexy {
+            margin-left: ${this.playerWidth + 24 + 30 + 24}px;
+          }
         </style>
       `;
     },
@@ -40,9 +43,6 @@ const App = {
         left: `${this.resizebarLeft}px`
       };
     }
-    // playerWidth: function() {
-    //   return this.resizebarLeft - 48;
-    // }
   }
 };
 
@@ -61,8 +61,11 @@ export default App;
 #warc-resize-bar:hover {
   cursor: ew-resize;
 }
-
 #player-container-outer.ytd-watch-flexy {
   min-width: 0 !important;
+}
+#player.ytd-watch-flexy {
+  position: fixed;
+  left: 24px;
 }
 </style>

@@ -1,4 +1,12 @@
 
+#columns.ytd-watch-flexy {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin-top: calc(44px + 2 * var(--ytwarc-margin)) !important;
+}
+
 #primary.ytd-watch-flexy,
 #secondary.ytd-watch-flexy {
   width: 100% !important;
