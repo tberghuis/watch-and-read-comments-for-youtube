@@ -1,7 +1,10 @@
 <template>
   <div id="warc-app">
-    <div ref="resizeBar" id="warc-resize-bar" v-bind:style="resizebarStyle"></div>
+    <div ref="resizeBar" id="warc-resize-bar" v-bind:style="resizebarStyle">
+      <div></div>
+    </div>
     <div v-html="appStyles"></div>
+    <TabHeadings></TabHeadings>
   </div>
 </template>
 
@@ -9,12 +12,14 @@
 import domElementsPromise from "../dom-element-dependencies";
 import Vue from "vue";
 import setupResizebarDrag from "../lib/setup-resizebar-drag";
+import TabHeadings from "./TabHeadings";
 
 const App = {
   data: function() {
     return {
-      resizebarLeft: 500,
-      playerWidth: 500 - 48
+      resizebarDragging: false,
+      resizebarLeft: 24 + 500 + 24 - 14,
+      playerWidth: 500
     };
   },
   mounted: function() {
@@ -33,16 +38,23 @@ const App = {
             width: ${this.playerWidth}px;
           }
           #primary-inner.ytd-watch-flexy {
-            margin-left: ${this.playerWidth + 24 + 30 + 24}px;
+            margin-left: ${24 + this.playerWidth + 24 + 2 + 24}px;
+          }
+          #warc-tab-headings {
+            left: ${24 + this.playerWidth + 24 + 2 + 24}px;
           }
         </style>
       `;
     },
     resizebarStyle: function() {
       return {
-        left: `${this.resizebarLeft}px`
+        left: `${this.resizebarLeft}px`,
+        backgroundColor: this.resizebarDragging ? "yellow" : "transparent"
       };
     }
+  },
+  components: {
+    TabHeadings
   }
 };
 
@@ -53,10 +65,16 @@ export default App;
 #warc-resize-bar {
   position: fixed;
   width: 30px;
-  background-color: black;
   left: 500px;
   top: 0;
   bottom: 0;
+  opacity: 0.5;
+}
+#warc-resize-bar > div {
+  margin: auto;
+  width: 2px;
+  background-color: black;
+  height: 100%;
 }
 #warc-resize-bar:hover {
   cursor: ew-resize;
@@ -67,5 +85,16 @@ export default App;
 #player.ytd-watch-flexy {
   position: fixed;
   left: 24px;
+  top: 80px;
+}
+#columns.ytd-watch-flexy,
+#primary.ytd-watch-flexy {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: initial !important;
+}
+#columns.ytd-watch-flexy {
+  margin-right: 24px !important;
+  margin-top: 64px !important;
 }
 </style>

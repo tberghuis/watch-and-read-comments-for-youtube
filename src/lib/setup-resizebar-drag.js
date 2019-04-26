@@ -1,14 +1,15 @@
 // should i worry about remove listeners, nah
 
 export default function setupResizebarDrag(resizeBarRef, appInstance) {
-  let leftMouseDown = false;
+  // let leftMouseDown = false;
   let leftMouseDownPageX = 0;
 
   resizeBarRef.addEventListener(
     "mousedown",
     function(e) {
       if (e.which === 1) {
-        leftMouseDown = true;
+        // leftMouseDown = true;
+        appInstance.resizebarDragging = true;
         leftMouseDownPageX = e.pageX;
         // console.log("leftMouseDownPageX", leftMouseDownPageX);
       }
@@ -18,7 +19,7 @@ export default function setupResizebarDrag(resizeBarRef, appInstance) {
   document.documentElement.addEventListener(
     "mousemove",
     function(e) {
-      if (leftMouseDown) {
+      if (appInstance.resizebarDragging) {
         // this stops page from highlighting text
         e.preventDefault();
         let moveDist = e.pageX - leftMouseDownPageX;
@@ -31,9 +32,9 @@ export default function setupResizebarDrag(resizeBarRef, appInstance) {
   document.documentElement.addEventListener(
     "mouseup",
     function(e) {
-      if (e.which === 1 && leftMouseDown) {
-        leftMouseDown = false;
-        appInstance.playerWidth = appInstance.resizebarLeft - 48;
+      if (e.which === 1 && appInstance.resizebarDragging) {
+        appInstance.resizebarDragging = false;
+        appInstance.playerWidth = appInstance.resizebarLeft - 24 - 24 + 14;
       }
     },
     false
