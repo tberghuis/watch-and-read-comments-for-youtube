@@ -1,4 +1,3 @@
-
 export default new Promise(resolve => {
   let player, watchFlexy;
   const assignDomElements = () => {
@@ -17,4 +16,3 @@ export default new Promise(resolve => {
     }
   };
 });
-
