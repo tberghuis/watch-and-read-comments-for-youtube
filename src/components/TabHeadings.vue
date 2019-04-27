@@ -8,37 +8,58 @@
 </template>
 
 <script>
+import Vue from "vue";
+
+function scrollTo(scrollTo) {
+  Vue.nextTick(function() {
+    window.scroll(0, scrollTo);
+  });
+}
+
 const TabHeadings = {
   data: function() {
     return {
       descriptionActive: true,
       commentsActive: false,
-      relatedActive: false
+      relatedActive: false,
+      descriptionScrollTop: 0,
+      commentsScrollTop: 0,
+      relatedScrollTop: 0
     };
   },
   methods: {
+    saveScrollTop() {
+      let scrollTop = document.documentElement.scrollTop;
+      if (this.descriptionActive) {
+        this.descriptionScrollTop = scrollTop;
+      }
+      if (this.commentsActive) {
+        this.commentsScrollTop = scrollTop;
+      }
+      if (this.relatedActive) {
+        this.relatedScrollTop = scrollTop;
+      }
+    },
     descriptionTabClick() {
-      console.log("descriptionTabClick");
-
-      // TODO save scroll position
-
+      this.saveScrollTop();
       this.commentsActive = false;
       this.relatedActive = false;
       this.descriptionActive = true;
+      scrollTo(this.descriptionScrollTop);
     },
     commentsTabClick() {
-      // TODO save scroll position
-
+      this.saveScrollTop();
       this.relatedActive = false;
       this.descriptionActive = false;
       this.commentsActive = true;
+      scrollTo(this.commentsScrollTop);
     },
     relatedTabClick() {
-      // TODO save scroll position
-
+      this.saveScrollTop();
       this.commentsActive = false;
       this.descriptionActive = false;
       this.relatedActive = true;
+      scrollTo(this.relatedScrollTop);
     }
   },
   computed: {
