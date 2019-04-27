@@ -9,6 +9,12 @@ async function overrideCalculateCurrentPlayerSize() {
   const watchFlexy = await watchFlexyPromise;
   const player = await playerPromise;
   watchFlexy.isTwoColumns_ = false;
+  // somehow works with observers
+  Object.defineProperty(watchFlexy, "isTwoColumns_", {
+    get: function() {
+      return false;
+    }
+  });
   watchFlexy.calculateCurrentPlayerSize_ = function() {
     let width = player.clientWidth;
     let ratio = watchFlexy.videoHeightToWidthRatio_;

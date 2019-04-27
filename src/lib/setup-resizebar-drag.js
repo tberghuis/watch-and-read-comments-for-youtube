@@ -31,14 +31,30 @@ export default function setupResizebarDrag(resizeBarRef, appInstance) {
       if (e.which === 1 && appInstance.resizebarDragging) {
         appInstance.resizebarDragging = false;
         appInstance.playerWidth = appInstance.resizebarLeft - 24 - 24 + 14;
-        let pwp =
+        appInstance.playerWidthPercent =
           appInstance.playerWidth / document.documentElement.clientWidth;
         // this is probably overkill, included for performance reasons
         Promise.resolve().then(() =>
-          localStorage.setItem("warc-player-width-percent", pwp)
+          localStorage.setItem(
+            "warc-player-width-percent",
+            appInstance.playerWidthPercent
+          )
         );
       }
     },
     false
   );
+
+  // on window resize
+  let resizeTimer;
+  window.onresize = function(event) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      // Run code here, resizing has "stopped"
+      // appInstance.playerWidth = document.documentElement.clientWidth *
+      appInstance.playerWidth =
+        document.documentElement.clientWidth * appInstance.playerWidthPercent;
+      appInstance.resizebarLeft = 24 + appInstance.playerWidth + 24 - 14;
+    }, 250);
+  };
 }

@@ -26,6 +26,7 @@ const App = {
       resizebarDragging: false,
       resizebarLeft: 24 + 500 + 24 - 14,
       playerWidth: 500,
+      playerWidthPercent: 0.5,
       appStyles: "",
       // must be a better way, probably vuex
       playerFullscreen: false
@@ -36,8 +37,9 @@ const App = {
   },
   mounted: function() {
     let pwp = localStorage.getItem("warc-player-width-percent");
-    pwp = pwp ? pwp : 0.5;
-    this.playerWidth = document.documentElement.clientWidth * pwp;
+    this.playerWidthPercent = pwp ? pwp : 0.5;
+    this.playerWidth =
+      document.documentElement.clientWidth * this.playerWidthPercent;
     this.resizebarLeft = 24 + this.playerWidth + 24 - 14;
 
     setupResizebarDrag(this.$refs.resizeBar, this);
