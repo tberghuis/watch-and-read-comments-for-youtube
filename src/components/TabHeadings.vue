@@ -109,7 +109,7 @@ div {
   z-index: 10000;
 }
 button {
-  font-size: 30px;
+  font-size: 20px;
 }
 button.active {
   background-color: pink;
