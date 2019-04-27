@@ -118,6 +118,9 @@ export default App;
   padding: 0 !important;
   max-width: initial !important;
 }
+#player-container-outer.ytd-watch-flexy {
+  max-width: initial !important;
+}
 #columns.ytd-watch-flexy {
   margin-right: 24px !important;
   margin-top: 64px !important;
