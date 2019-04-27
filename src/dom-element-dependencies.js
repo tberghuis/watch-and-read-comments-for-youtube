@@ -16,9 +16,7 @@ const resolveElement = (query, resolve) => {
 };
 
 document.onreadystatechange = function() {
-  console.log("onreadystatechange");
   if (document.readyState === "complete") {
-    console.log("complete");
     resolveElement("#player.ytd-watch-flexy", resolvePlayer);
     resolveElement("ytd-watch-flexy", resolveWatchFlexy);
     resolveElement("ytd-app", resolveYtdApp);

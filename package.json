@@ -1,7 +1,7 @@
 {
-  "name": "webpack-simple",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
+  "name": "watch-and-read-comments-for-youtube",
+  "description": "Watch and read comments at the same time on youtube",
+  "version": "0.0.5",
   "author": "Tom Berghuis <thomas.berghuis@gmail.com>",
   "license": "MIT",
   "private": true,

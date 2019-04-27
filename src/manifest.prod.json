@@ -3,6 +3,12 @@
   "version": "0.0.5",
   "manifest_version": 2,
   "description": "Allows you to watch videos and read comments at the same time on Youtube.",
+  "icons": {
+    "16": "img/icon.16.png",
+    "32": "img/icon.32.png",
+    "48": "img/icon.48.png",
+    "128": "img/icon.128.png"
+  },
   "author": "tberghuis",
   "homepage_url": "https://github.com/tberghuis/watch-and-read-comments-for-youtube",
   "permissions": ["activeTab"],
