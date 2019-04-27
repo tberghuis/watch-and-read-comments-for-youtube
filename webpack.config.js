@@ -64,7 +64,7 @@ if (process.env.NODE_ENV === "development") {
   module.exports.devtool = "#eval-source-map";
   module.exports.output.path = path.resolve(__dirname, "./dist-dev");
 } else if (process.env.NODE_ENV === "production") {
-  module.exports.devtool = "#source-map";
+  // module.exports.devtool = "#source-map";
   module.exports.output.path = path.resolve(__dirname, "./dist-prod");
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
