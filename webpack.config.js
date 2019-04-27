@@ -13,7 +13,7 @@ console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 module.exports = {
   entry: {
     content: "./src/content.js",
-    background: "./src/background.js",
+    // background: "./src/background.js",
     inject: ["babel-polyfill", "./src/inject.js"]
   },
   output: {
