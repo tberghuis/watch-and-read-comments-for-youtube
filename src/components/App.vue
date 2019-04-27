@@ -19,33 +19,41 @@ const App = {
     return {
       resizebarDragging: false,
       resizebarLeft: 24 + 500 + 24 - 14,
-      playerWidth: 500
+      playerWidth: 500,
+      appStyles: ""
     };
   },
   mounted: function() {
+    let pwp = localStorage.getItem("warc-player-width-percent");
+    pwp = pwp ? pwp : 0.5;
+    this.playerWidth = document.documentElement.clientWidth * pwp;
+    this.resizebarLeft = 24 + this.playerWidth + 24 - 14;
+
     setupResizebarDrag(this.$refs.resizeBar, this);
-    window._APP = this;
+    // window._APP = this;
   },
-  computed: {
-    appStyles: function() {
+  watch: {
+    playerWidth: function(playerWidth) {
+      this.appStyles = `
+        <style>
+          #player.ytd-watch-flexy {
+            width: ${playerWidth}px;
+          }
+          #primary-inner.ytd-watch-flexy {
+            margin-left: ${24 + playerWidth + 24 + 2 + 24}px;
+          }
+          #warc-tab-headings {
+            left: ${24 + playerWidth + 24 + 2 + 24}px;
+          }
+        </style>
+      `;
       Vue.nextTick(async function() {
         const { watchFlexy } = await domElementsPromise;
         watchFlexy.schedulePlayerSizeUpdate_();
       });
-      return `
-        <style>
-          #player.ytd-watch-flexy {
-            width: ${this.playerWidth}px;
-          }
-          #primary-inner.ytd-watch-flexy {
-            margin-left: ${24 + this.playerWidth + 24 + 2 + 24}px;
-          }
-          #warc-tab-headings {
-            left: ${24 + this.playerWidth + 24 + 2 + 24}px;
-          }
-        </style>
-      `;
-    },
+    }
+  },
+  computed: {
     resizebarStyle: function() {
       return {
         left: `${this.resizebarLeft}px`,
