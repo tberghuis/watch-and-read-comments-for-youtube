@@ -1,5 +1,5 @@
 <template>
-  <div id="warc-tab-headings">
+  <div id="warc-tab-headings" :style="headingsContainerStyle">
     <button v-on:click="descriptionTabClick" :class="{active: descriptionActive}">description</button>
     <button v-on:click="commentsTabClick" :class="{active: commentsActive}">comments</button>
     <button v-on:click="relatedTabClick" :class="{active: relatedActive}">related</button>
@@ -16,6 +16,19 @@ function scrollTo(scrollTo) {
   });
 }
 
+function fullscreenWatcher(tabHeadingsInstance) {
+  var fullscreenChangeHandler = {
+    set: function(obj, prop, value) {
+
+      //
+
+      obj[prop] = value;
+    }
+  };
+
+  var p = new Proxy({}, handler);
+}
+
 const TabHeadings = {
   data: function() {
     return {
@@ -24,7 +37,10 @@ const TabHeadings = {
       relatedActive: false,
       descriptionScrollTop: 0,
       commentsScrollTop: 0,
-      relatedScrollTop: 0
+      relatedScrollTop: 0,
+      headingsContainerStyle: {
+        visibility: "visible"
+      }
     };
   },
   methods: {

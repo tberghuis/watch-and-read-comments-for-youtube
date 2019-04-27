@@ -1,10 +1,13 @@
 import Vue from "vue";
 import App from "./components/App.vue";
-import domElementsPromise from "./dom-element-dependencies";
+// import domElementsPromise from "./dom-element-dependencies";
+import { watchFlexyPromise, playerPromise } from "./dom-element-dependencies";
 
 // i could have done this in dom-element-dependencies
 async function overrideCalculateCurrentPlayerSize() {
-  const { player, watchFlexy } = await domElementsPromise;
+  // const { player, watchFlexy } = await domElementsPromise;
+  const watchFlexy = await watchFlexyPromise;
+  const player = await playerPromise;
   watchFlexy.isTwoColumns_ = false;
   watchFlexy.calculateCurrentPlayerSize_ = function() {
     let width = player.clientWidth;

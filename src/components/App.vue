@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import domElementsPromise from "../dom-element-dependencies";
+import { watchFlexyPromise } from "../dom-element-dependencies";
 import Vue from "vue";
 import setupResizebarDrag from "../lib/setup-resizebar-drag";
 import TabHeadings from "./TabHeadings";
@@ -48,7 +48,7 @@ const App = {
         </style>
       `;
       Vue.nextTick(async function() {
-        const { watchFlexy } = await domElementsPromise;
+        const watchFlexy = await watchFlexyPromise;
         watchFlexy.schedulePlayerSizeUpdate_();
       });
     }
