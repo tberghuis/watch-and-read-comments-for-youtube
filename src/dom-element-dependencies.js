@@ -12,34 +12,15 @@ const resolveElement = (query, resolve) => {
     resolve(element);
     return;
   }
-  setTimeout(resolveElement, 0);
+  setTimeout(() => resolveElement(query, resolve), 0);
 };
 
 document.onreadystatechange = function() {
+  console.log("onreadystatechange");
   if (document.readyState === "complete") {
+    console.log("complete");
     resolveElement("#player.ytd-watch-flexy", resolvePlayer);
     resolveElement("ytd-watch-flexy", resolveWatchFlexy);
     resolveElement("ytd-app", resolveYtdApp);
   }
 };
-
-//////////////////////////////
-
-// export default new Promise(resolve => {
-//   let player, watchFlexy;
-//   const assignDomElements = () => {
-//     player = document.querySelector("#player.ytd-watch-flexy");
-//     watchFlexy = document.querySelector("ytd-watch-flexy");
-//     if (!player || !watchFlexy) {
-//       setTimeout(assignDomElements, 0);
-//     } else {
-//       resolve({ player, watchFlexy });
-//     }
-//   };
-
-//   document.onreadystatechange = async function() {
-//     if (document.readyState === "complete") {
-//       assignDomElements();
-//     }
-//   };
-// });

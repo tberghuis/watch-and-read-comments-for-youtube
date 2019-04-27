@@ -3,13 +3,13 @@
     <div
       ref="resizeBar"
       id="warc-resize-bar"
-      :class="{ hidden: playerFullscreen }"
+      :class="{ hidden: hideAppWidgets }"
       v-bind:style="resizebarStyle"
     >
       <div></div>
     </div>
     <div v-html="appStyles"></div>
-    <TabHeadings :class="{ hidden: playerFullscreen }"></TabHeadings>
+    <TabHeadings :class="{ hidden: hideAppWidgets }"></TabHeadings>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import { watchFlexyPromise } from "../dom-element-dependencies";
 import Vue from "vue";
 import setupResizebarDrag from "../lib/setup-resizebar-drag";
 import TabHeadings from "./TabHeadings";
-import watchPlayerFullscreen from "../lib/watch-player-fullscreen";
+import hideAppWidgets from "../lib/hide-app-widgets";
 
 const App = {
   data: function() {
@@ -29,11 +29,11 @@ const App = {
       playerWidthPercent: 0.5,
       appStyles: "",
       // must be a better way, probably vuex
-      playerFullscreen: false
+      hideAppWidgets: true
     };
   },
   beforeCreate: function() {
-    watchPlayerFullscreen(this);
+    hideAppWidgets(this);
   },
   mounted: function() {
     let pwp = localStorage.getItem("warc-player-width-percent");

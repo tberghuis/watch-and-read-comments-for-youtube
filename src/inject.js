@@ -1,11 +1,8 @@
 import Vue from "vue";
 import App from "./components/App.vue";
-// import domElementsPromise from "./dom-element-dependencies";
 import { watchFlexyPromise, playerPromise } from "./dom-element-dependencies";
 
-// i could have done this in dom-element-dependencies
-async function overrideCalculateCurrentPlayerSize() {
-  // const { player, watchFlexy } = await domElementsPromise;
+async function overridePageJavascript() {
   const watchFlexy = await watchFlexyPromise;
   const player = await playerPromise;
   watchFlexy.isTwoColumns_ = false;
@@ -32,7 +29,7 @@ function appendVueRootElement() {
 }
 
 function run() {
-  overrideCalculateCurrentPlayerSize();
+  overridePageJavascript();
   appendVueRootElement();
 }
 
