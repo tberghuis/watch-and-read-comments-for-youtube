@@ -3,6 +3,7 @@
     <button v-on:click="descriptionTabClick" :class="{active: descriptionActive}">description</button>
     <button v-on:click="commentsTabClick" :class="{active: commentsActive}">comments</button>
     <button v-on:click="relatedTabClick" :class="{active: relatedActive}">related</button>
+    <button v-on:click="chatTabClick" :class="{active: chatActive}">chat</button>
     <div v-html="sidebarStyles"></div>
   </div>
 </template>
@@ -22,9 +23,11 @@ const TabHeadings = {
       descriptionActive: true,
       commentsActive: false,
       relatedActive: false,
+      chatActive: false,
       descriptionScrollTop: 0,
       commentsScrollTop: 0,
-      relatedScrollTop: 0
+      relatedScrollTop: 0,
+      chatScrollTop: 0
     };
   },
   methods: {
@@ -39,11 +42,15 @@ const TabHeadings = {
       if (this.relatedActive) {
         this.relatedScrollTop = scrollTop;
       }
+      if (this.chatActive) {
+        this.chatScrollTop = scrollTop;
+      }
     },
     descriptionTabClick() {
       this.saveScrollTop();
       this.commentsActive = false;
       this.relatedActive = false;
+      this.chatActive = false;
       this.descriptionActive = true;
       scrollTo(this.descriptionScrollTop);
     },
@@ -51,6 +58,7 @@ const TabHeadings = {
       this.saveScrollTop();
       this.relatedActive = false;
       this.descriptionActive = false;
+      this.chatActive = false;
       this.commentsActive = true;
       scrollTo(this.commentsScrollTop);
     },
@@ -58,7 +66,16 @@ const TabHeadings = {
       this.saveScrollTop();
       this.commentsActive = false;
       this.descriptionActive = false;
+      this.chatActive = false;
       this.relatedActive = true;
+      scrollTo(this.relatedScrollTop);
+    },
+    chatTabClick() {
+      this.saveScrollTop();
+      this.commentsActive = false;
+      this.descriptionActive = false;
+      this.relatedActive = false;
+      this.chatActive = true;
       scrollTo(this.relatedScrollTop);
     }
   },
@@ -72,6 +89,9 @@ const TabHeadings = {
             height: 0;
             overflow: hidden;
           }
+          ytd-live-chat-frame {
+            display: none;
+          }
         </style>
       `;
       }
@@ -82,6 +102,9 @@ const TabHeadings = {
             height: 0;
             overflow: hidden;
           }
+          ytd-live-chat-frame {
+            display: none;
+          }
         </style>
       `;
       }
@@ -89,6 +112,19 @@ const TabHeadings = {
         return `
         <style>
           #primary-inner.ytd-watch-flexy > *:not(#player):not(#related) {
+            height: 0;
+            overflow: hidden;
+          }
+          ytd-live-chat-frame {
+            display: none;
+          }
+        </style>
+      `;
+      }
+      if (this.chatActive) {
+        return `
+        <style>
+          #primary-inner.ytd-watch-flexy > *:not(#player) {
             height: 0;
             overflow: hidden;
           }
