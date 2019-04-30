@@ -108,7 +108,7 @@ export default App;
   min-width: 0 !important;
 }
 #player.ytd-watch-flexy {
-  position: fixed;
+  position: fixed !important;
   left: 24px;
   top: 80px;
 }
