@@ -124,5 +124,6 @@ export default App;
 #columns.ytd-watch-flexy {
   margin-right: 24px !important;
   margin-top: 64px !important;
+  display: block !important;
 }
 </style>
