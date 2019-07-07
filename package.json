@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development webpack --watch",
+    "dev:popup": "gulp watch-popup-dev",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
@@ -27,6 +28,8 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "gulp": "^4.0.2",
+    "gulp-watch": "^5.0.1",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0"

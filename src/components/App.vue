@@ -34,16 +34,26 @@ const App = {
   },
   beforeCreate: function() {
     hideAppWidgets(this);
+    const appInstance = this;
+    window.addEventListener("reset-divider-event", function() {
+      appInstance.playerWidthPercent = 0.5;
+      appInstance.setPlayerWidth();
+      // save to localstorage
+      Promise.resolve().then(() =>
+        localStorage.setItem(
+          "warc-player-width-percent",
+          appInstance.playerWidthPercent
+        )
+      );
+    });
   },
   mounted: function() {
     let pwp = localStorage.getItem("warc-player-width-percent");
     this.playerWidthPercent = pwp ? pwp : 0.5;
-    this.playerWidth =
-      document.documentElement.clientWidth * this.playerWidthPercent;
-    this.resizebarLeft = 24 + this.playerWidth + 24 - 14;
 
+    this.setPlayerWidth();
+    
     setupResizebarDrag(this.$refs.resizeBar, this);
-    // window._APP = this;
   },
   watch: {
     playerWidth: function(playerWidth) {
@@ -76,10 +86,18 @@ const App = {
   },
   components: {
     TabHeadings
+  },
+  methods: {
+    setPlayerWidth: function() {
+      this.playerWidth =
+        document.documentElement.clientWidth * this.playerWidthPercent;
+      this.resizebarLeft = 24 + this.playerWidth + 24 - 14;
+    }
   }
 };
 
 export default App;
+
 </script>
 
 <style>

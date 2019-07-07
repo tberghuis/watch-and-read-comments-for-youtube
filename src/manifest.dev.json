@@ -22,6 +22,9 @@
   "background": {
     "scripts": ["hot-reload.js"]
   },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
   "web_accessible_resources": ["inject.js"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
