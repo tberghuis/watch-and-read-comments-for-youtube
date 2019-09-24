@@ -52,7 +52,7 @@ const App = {
     this.playerWidthPercent = pwp ? pwp : 0.5;
 
     this.setPlayerWidth();
-    
+
     setupResizebarDrag(this.$refs.resizeBar, this);
   },
   watch: {
@@ -97,7 +97,6 @@ const App = {
 };
 
 export default App;
-
 </script>
 
 <style>
@@ -142,6 +141,9 @@ export default App;
 #columns.ytd-watch-flexy {
   margin-right: 24px !important;
   margin-top: 64px !important;
+  display: block !important;
+}
+#info.ytd-video-primary-info-renderer {
   display: block !important;
 }
 </style>
