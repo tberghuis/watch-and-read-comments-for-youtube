@@ -28,4 +28,6 @@ rm release/reload.js
 
 # zip
 
+# github push
+
 # release
