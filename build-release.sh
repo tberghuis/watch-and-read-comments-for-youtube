@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# update prod manifest version
-
 rm -rf release/
 
 mkdir release
@@ -24,7 +22,7 @@ cp prod/* release/
 
 rm release/reload.js
 
-# update manifest content_scripts
+# update release manifest version, content_scripts
 
 # test
 
