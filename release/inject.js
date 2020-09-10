@@ -40,6 +40,8 @@ async function schedulePlayerSizeUpdate() {
 function subscribeExtensionEnabledSubject() {
   extensionEnabledSubject.subscribe({
     next: (v) => {
+      console.log("extensionEnabledSubject", v);
+
       if (v) {
         overrideOrig();
       } else {
