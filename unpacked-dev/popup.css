@@ -1,0 +1,12 @@
+body {
+  width: 200px;
+  /* height: 200px; */
+}
+
+body > div {
+  margin-top: 20px;
+}
+
+body > div:first-child {
+  margin-top: 10px;
+}

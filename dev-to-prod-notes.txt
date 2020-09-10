@@ -1,0 +1,25 @@
+
+update manifest version
+
+content, npm run build
+
+copy unpacked-dev unpacked-prod
+
+copy content/dist unpacked-prod/dist
+
+manifest remove permission "http://localhost.com:8080/*"
+
+delete stuff content.js
+
+manifest add dist js, css content_scripts
+
+manifest remove content_security_policy
+
+delete unused .map .html from dist
+
+delete reload.js
+
+remove reload.js manifest
+
+
+#############
