@@ -11,7 +11,11 @@ listenPopupMessages();
 
 async function getExtensionEnabled() {
   // i could have messaged background instead
+
+  console.log("getExtensionEnabled");
+
   const _extensionEnabled = await getStorageData("extensionEnabled");
+  console.log("_extensionEnabled", _extensionEnabled);
   if (_extensionEnabled === undefined) {
     extensionEnabled.value = true;
   } else {
