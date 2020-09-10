@@ -62,9 +62,9 @@ const TabHeadings = {
       this.commentsActive = true;
       scrollTo(this.commentsScrollTop);
 
-      // do I need to grab last if more than one???
-      const nc = document.querySelector("ytd-comments yt-next-continuation");
-      nc.fire("yt-load-next-continuation", nc.getContinuationUrl.bind(nc));
+      const event = new CustomEvent("warc-load-comments");
+      window.dispatchEvent(event);
+
     },
     relatedTabClick() {
       this.saveScrollTop();

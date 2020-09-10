@@ -28,6 +28,8 @@ function listenCustomEvents() {
     "schedule-player-size-update",
     schedulePlayerSizeUpdate
   );
+
+  window.addEventListener("warc-load-comments", loadComments);
 }
 
 async function schedulePlayerSizeUpdate() {
@@ -100,4 +102,12 @@ async function proxyFullscreen() {
       return this.fullscreen__;
     },
   });
+}
+
+function loadComments() {
+  // do I need to grab last if more than one???
+  const nc = document.querySelector("ytd-comments yt-next-continuation");
+  if (nc) {
+    nc.fire("yt-load-next-continuation", nc.getContinuationUrl.bind(nc));
+  }
 }
