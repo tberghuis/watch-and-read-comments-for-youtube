@@ -26,3 +26,8 @@ rm release/reload.js
 
 # update manifest content_scripts
 
+# test
+
+# zip
+
+# release
