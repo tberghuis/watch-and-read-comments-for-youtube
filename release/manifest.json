@@ -1,6 +1,6 @@
 {
   "name": "Comments Sidebar for Youtube",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Allows you to watch videos and read comments at the same time on Youtube.",
   "icons": {
@@ -20,7 +20,7 @@
       "js": [
         "content.js",
         "content/js/chunk-vendors.68d845d0.js",
-        "content/js/app.39e87cf5.js"
+        "content/js/app.d04b5548.js"
       ]
     }
   ],
