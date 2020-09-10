@@ -15,11 +15,12 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
+      "run_at": "document_end",
       "css": ["content/css/app.575ffa66.css"],
       "js": [
         "content.js",
         "content/js/chunk-vendors.68d845d0.js",
-        "content/js/app.824d2ce2.js"
+        "content/js/app.39e87cf5.js"
       ]
     }
   ],

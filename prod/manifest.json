@@ -15,6 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
+      "run_at": "document_end",
       "css": ["content/css/app.REPLACE.css"],
       "js": [
         "content.js",

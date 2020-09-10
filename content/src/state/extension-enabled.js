@@ -3,13 +3,13 @@ import { getStorageData } from "../util.js";
 
 export const extensionEnabled = ref(false);
 
-getExtensionEnabled();
+initExtensionEnabled();
 
 listenPopupMessages();
 
 //////////////// functions
 
-async function getExtensionEnabled() {
+async function initExtensionEnabled() {
   // i could have messaged background instead
 
   console.log("getExtensionEnabled");
@@ -21,7 +21,11 @@ async function getExtensionEnabled() {
   } else {
     extensionEnabled.value = _extensionEnabled;
   }
-  fireExtensionEnabledEventForInject(extensionEnabled.value);
+
+  // this was firing before inject loaded
+  setTimeout(function() {
+    fireExtensionEnabledEventForInject(extensionEnabled.value);
+  }, 500);
 }
 
 function listenPopupMessages() {
