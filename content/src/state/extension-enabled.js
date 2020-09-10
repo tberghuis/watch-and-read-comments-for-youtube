@@ -3,29 +3,34 @@ import { getStorageData } from "../util.js";
 
 export const extensionEnabled = ref(false);
 
-initExtensionEnabled();
+const extensionEnabledPromise = getStorageData("extensionEnabled");
 
+initExtensionEnabled();
+waitInjectReady();
 listenPopupMessages();
 
 //////////////// functions
 
+function waitInjectReady() {
+  window.addEventListener("inject-ready", initExtensionEnabled);
+}
+
+// this may run twice as sometimes content.js loads before inject.js
 async function initExtensionEnabled() {
-  // i could have messaged background instead
+  const _extensionEnabled = await extensionEnabledPromise;
 
-  console.log("getExtensionEnabled");
-
-  const _extensionEnabled = await getStorageData("extensionEnabled");
-  console.log("_extensionEnabled", _extensionEnabled);
   if (_extensionEnabled === undefined) {
     extensionEnabled.value = true;
   } else {
     extensionEnabled.value = _extensionEnabled;
   }
 
+  fireExtensionEnabledEventForInject(extensionEnabled.value);
+
   // this was firing before inject loaded
-  setTimeout(function() {
-    fireExtensionEnabledEventForInject(extensionEnabled.value);
-  }, 500);
+  // setTimeout(function() {
+  //   fireExtensionEnabledEventForInject(extensionEnabled.value);
+  // }, 500);
 }
 
 function listenPopupMessages() {

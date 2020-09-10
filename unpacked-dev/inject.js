@@ -24,6 +24,10 @@ function listenCustomEvents() {
     schedulePlayerSizeUpdate();
   });
 
+  //
+  const event = new CustomEvent("inject-ready");
+  window.dispatchEvent(event);
+
   window.addEventListener(
     "schedule-player-size-update",
     schedulePlayerSizeUpdate
