@@ -1,21 +1,4 @@
-
-
-build scripts
-
-./build-dev.sh
-
-cp src/somefile.dev.js to unpacked-dev
-...
-
-
-can i use symlinks?
-
-
-
-content script assumes extension is enabled....
-i guess, do it wrong
-
-
------------------
-.gitignore dist-prod .... or probably not so it is easy to clone and run
+so investigate why unpacked extension not working
+package-lock.json???
+try in linux???
 
