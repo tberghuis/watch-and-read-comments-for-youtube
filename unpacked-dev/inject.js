@@ -80,7 +80,7 @@ async function overrideOrig() {
   watchFlexy.calculateCurrentPlayerSize_ = function () {
     let width = player.clientWidth;
     let ratio = watchFlexy.videoHeightToWidthRatio_;
-    return { width, height: width * ratio };
+    return { width, height: Math.floor(width * ratio) };
   };
 }
 
