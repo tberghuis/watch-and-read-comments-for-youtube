@@ -14,7 +14,9 @@ let origIsTwoColumns;
 initOrig();
 subscribeExtensionEnabledSubject();
 listenCustomEvents();
-proxyFullscreen();
+// proxyFullscreen();
+listenFullscreen();
+
 
 /////////////////// functions
 
@@ -93,22 +95,33 @@ async function restoreOrig() {
   watchFlexy.calculateCurrentPlayerSize_ = origCalculateCurrentPlayerSize_;
 }
 
-async function proxyFullscreen() {
+// async function proxyFullscreen() {
+//   const ytdApp = await ytdAppPromise;
+//   Object.defineProperty(ytdApp, "fullscreen_", {
+//     set: function (x) {
+//       // customevent
+
+//       const event = new CustomEvent("fullscreen", { detail: x });
+//       window.dispatchEvent(event);
+
+//       this.fullscreen__ = x;
+//     },
+//     get: function () {
+//       return this.fullscreen__;
+//     },
+//   });
+// }
+
+async function listenFullscreen() {
+  console.log("listenFullscreen");
   const ytdApp = await ytdAppPromise;
-  Object.defineProperty(ytdApp, "fullscreen_", {
-    set: function (x) {
-      // customevent
-
-      const event = new CustomEvent("fullscreen", { detail: x });
-      window.dispatchEvent(event);
-
-      this.fullscreen__ = x;
-    },
-    get: function () {
-      return this.fullscreen__;
-    },
+  window.addEventListener("fullscreenchange", function (e) {
+    const customEvent = new CustomEvent("fullscreen", { detail: ytdApp.fullscreen });
+    window.dispatchEvent(customEvent);
+    console.log("fullscreen", ytdApp.fullscreen);
   });
 }
+
 
 function loadComments() {
   // do I need to grab last if more than one???

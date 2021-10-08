@@ -3,3 +3,18 @@ package-lock.json???
 try in linux???
 hello world one feature at a time
 cull one feature at a time
+
+
+
+
+######################
+dev env setup
+
+content
+  - npm i
+  - npm run serve
+chrome
+  - load unpacked, unpacked-dev
+  - enable edge://flags/#allow-insecure-localhost
+
+remember to reload on inject script changes

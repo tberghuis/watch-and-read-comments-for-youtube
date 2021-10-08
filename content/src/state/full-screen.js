@@ -13,3 +13,11 @@ async function listenFullscreenEvent() {
     fullscreen.value = e.detail;
   });
 }
+
+// async function listenFullscreenEvent() {
+//   window.addEventListener("fullscreenchange", function(event) {
+//     console.log("yt-fullscreen-change-action");
+//     var ytdApp = document.querySelector("ytd-app");
+//     console.log("fullscreen", ytdApp.fullscreen);
+//   });
+// }
