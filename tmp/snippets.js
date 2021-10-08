@@ -34,3 +34,9 @@ var ytdApp = document.querySelector('ytd-app');
 
 
 ytd-app
+
+
+yt-visibility-monitor
+
+
+document.querySelector('yt-visibility-monitor').markDirty();

@@ -105,10 +105,5 @@ async function listenFullscreen() {
 
 
 function loadComments() {
-  // do I need to grab last if more than one???
-  const nc = document.querySelector("ytd-comments yt-next-continuation");
-  if (nc) {
-    // nc.fire("yt-load-next-continuation", nc.getContinuationUrl.bind(nc));
-    nc.trigger();
-  }
+  document.querySelector('yt-visibility-monitor').markDirty();
 }
