@@ -1,0 +1,17 @@
+#### dev-setup
+git fetch
+
+load unpacked-dev
+
+content, npm run serve
+
+fix authority invalid error
+chrome://flags/#allow-insecure-localhost
+
+
+### pre-release
+update version
+build content
+package release
+
+push github

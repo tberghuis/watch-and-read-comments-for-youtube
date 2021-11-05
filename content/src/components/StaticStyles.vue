@@ -42,6 +42,12 @@
     #info.ytd-video-primary-info-renderer {
     display: block !important;
     }
+    
+    #player-container.ytd-watch-flexy {
+    height: calc(100vh - 104px) !important;
+    }
+
+
   </v-style>
 </template>
 

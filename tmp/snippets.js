@@ -40,3 +40,8 @@ yt-visibility-monitor
 
 
 document.querySelector('yt-visibility-monitor').markDirty();
+
+
+document.querySelector('ytd-watch-flexy').schedulePlayerSizeUpdate_()
+
+document.documentElement.clientHeight - 104

@@ -77,10 +77,17 @@ async function overrideOrig() {
     configurable: true,
   });
 
+  // watchFlexy.calculateCurrentPlayerSize_ = function () {
+  //   let width = player.clientWidth;
+  //   let ratio = watchFlexy.videoHeightToWidthRatio_;
+  //   return { width, height: Math.floor(width * ratio) };
+  // };
+
   watchFlexy.calculateCurrentPlayerSize_ = function () {
     let width = player.clientWidth;
-    let ratio = watchFlexy.videoHeightToWidthRatio_;
-    return { width, height: Math.floor(width * ratio) };
+    // 104 = 56 + (2 * 24)
+    let height = document.documentElement.clientHeight - 104;
+    return { width, height };
   };
 }
 
@@ -97,13 +104,14 @@ async function listenFullscreen() {
   // console.log("listenFullscreen");
   const ytdApp = await ytdAppPromise;
   window.addEventListener("fullscreenchange", function (e) {
-    const customEvent = new CustomEvent("fullscreen", { detail: ytdApp.fullscreen });
+    const customEvent = new CustomEvent("fullscreen", {
+      detail: ytdApp.fullscreen,
+    });
     window.dispatchEvent(customEvent);
     // console.log("fullscreen", ytdApp.fullscreen);
   });
 }
 
-
 function loadComments() {
-  document.querySelector('yt-visibility-monitor').markDirty();
+  document.querySelector("yt-visibility-monitor").markDirty();
 }

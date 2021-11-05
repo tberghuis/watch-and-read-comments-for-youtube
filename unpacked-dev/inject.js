@@ -77,10 +77,17 @@ async function overrideOrig() {
     configurable: true,
   });
 
+  // watchFlexy.calculateCurrentPlayerSize_ = function () {
+  //   let width = player.clientWidth;
+  //   let ratio = watchFlexy.videoHeightToWidthRatio_;
+  //   return { width, height: Math.floor(width * ratio) };
+  // };
+
   watchFlexy.calculateCurrentPlayerSize_ = function () {
     let width = player.clientWidth;
-    let ratio = watchFlexy.videoHeightToWidthRatio_;
-    return { width, height: Math.floor(width * ratio) };
+    // 104 = 56 + (2 * 24)
+    let height = document.documentElement.clientHeight - 104;
+    return { width, height };
   };
 }
 
