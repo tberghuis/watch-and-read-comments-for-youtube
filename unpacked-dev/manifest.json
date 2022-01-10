@@ -1,6 +1,6 @@
 {
   "name": "Comments Sidebar for Youtube",
-  "version": "BROKEN fix content_security_policy, permissions",
+  "version": "BROKEN fix content_security_policy, permissions, background reload.js",
   "manifest_version": 3,
   "description": "Allows you to watch videos and read comments at the same time on Youtube.",
   "icons": {
