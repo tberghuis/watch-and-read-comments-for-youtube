@@ -23,15 +23,16 @@ function extensionEnabledCheckboxListener() {
     });
 }
 
-function sendMessageSetExtensionEnabled(value) {
+async function sendMessageSetExtensionEnabled(value) {
   // send to background
   chrome.runtime.sendMessage({ extensionEnabled: value });
 
   // send to tab when active
-  chrome.tabs.query({}, (tabs) => {
-    tabs.forEach((tab) => {
-      chrome.tabs.sendMessage(tab.id, { extensionEnabled: value });
-    });
+  // should query = { active: true, currentWindow: true }
+  let query = {};
+  let tabs = await chrome.tabs.query(query);
+  tabs.forEach((tab) => {
+    chrome.tabs.sendMessage(tab.id, { extensionEnabled: value });
   });
 }
 
@@ -42,10 +43,10 @@ function resetDividerButtonListener() {
   });
 }
 
-function sendResetDividerMessageToContentScript() {
-  chrome.tabs.query({}, (tabs) => {
-    tabs.forEach((tab) => {
-      chrome.tabs.sendMessage(tab.id, { message: "reset-divider" });
-    });
+async function sendResetDividerMessageToContentScript() {
+  let query = {};
+  let tabs = await chrome.tabs.query(query);
+  tabs.forEach((tab) => {
+    chrome.tabs.sendMessage(tab.id, { message: "reset-divider" });
   });
 }
