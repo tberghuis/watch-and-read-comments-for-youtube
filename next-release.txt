@@ -1,0 +1,23 @@
+
+create branch dev-readmore
+new unpacked folder dev-readmore-unpacked
+
+revert unpacked-dev manifest to v2
+as i can't get working csp for v3
+
+dev this feature in a stand alaone fresh extension
+
+1st task button hello world
+
+what event is read more ready...
+yt-navigate-finish???
+
+...
+
+default setting disabled popup
+
+add feature to web store desciption
+
+release
+
+

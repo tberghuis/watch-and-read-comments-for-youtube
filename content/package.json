@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --https --host 127.0.0.1",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve --https --host 127.0.0.1",
     "build": "vue-cli-service build"
   },
   "dependencies": {
