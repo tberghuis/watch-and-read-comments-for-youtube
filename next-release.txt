@@ -21,3 +21,9 @@ add feature to web store desciption
 release
 
 
+https://stackoverflow.com/questions/68329405/javascript-wait-until-element-loaded-on-website-using-chrome-extensiion
+MutationObserver...
+doitwrong
+
+
+use manifest v2 for dev, i need hot reload

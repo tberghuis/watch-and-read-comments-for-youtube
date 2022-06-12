@@ -1,0 +1,17 @@
+{
+  // Comments are accepted in the manifest, even though it is JSON.
+  "manifest_version": 3,
+  "name": "read more",
+  "description": "read more description youtube",
+  "version": "0.0.1",
+
+  "permissions": [],
+  "host_permissions": ["*://*/*"],
+
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
+}
