@@ -62,8 +62,8 @@ const TabHeadings = {
       this.commentsActive = true;
       scrollTo(this.commentsScrollTop);
 
-      const event = new CustomEvent("warc-load-comments");
-      window.dispatchEvent(event);
+      // const event = new CustomEvent("warc-load-comments");
+      // window.dispatchEvent(event);
 
     },
     relatedTabClick() {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve --https --host 127.0.0.1",
-    "build": "vue-cli-service build"
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.6.5",

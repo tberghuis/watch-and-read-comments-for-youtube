@@ -33,7 +33,7 @@ function listenCustomEvents() {
     schedulePlayerSizeUpdate
   );
 
-  window.addEventListener("warc-load-comments", loadComments);
+  // window.addEventListener("warc-load-comments", loadComments);
 }
 
 async function schedulePlayerSizeUpdate() {

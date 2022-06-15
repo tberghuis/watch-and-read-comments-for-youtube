@@ -41,13 +41,14 @@
     }
     #info.ytd-video-primary-info-renderer {
     display: block !important;
-    }
-    
+    }    
     #player-container.ytd-watch-flexy {
     height: calc(100vh - 104px) !important;
     }
 
-
+    ytd-expander.ytd-video-secondary-info-renderer {
+      --ytd-expander-collapsed-height: '' !important;
+    }
   </v-style>
 </template>
 

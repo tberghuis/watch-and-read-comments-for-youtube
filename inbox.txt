@@ -10,3 +10,15 @@ chrome
   chrome://flags/#allow-insecure-localhost
 
 remember to reload on inject script changes
+
+
+retire reload.js only works manifest v2
+content.js listen for 'r' keypress
+send message background.js
+    chrome.tabs.query({ active: true }).then(() => {
+      chrome.runtime.reload();
+      chrome.tabs.reload();
+    });
+
+
+

@@ -1,9 +1,5 @@
 
-beyond-compare release unpacked-dev
-
-inbox.txt
-background message reload
-content listen for 'r' keypress
-
+release.zip
 release
+github push
 merge branch dev-readmore
