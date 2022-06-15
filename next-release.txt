@@ -1,29 +1,9 @@
 
-create branch dev-readmore
-new unpacked folder dev-readmore-unpacked
+beyond-compare release unpacked-dev
 
-revert unpacked-dev manifest to v2
-as i can't get working csp for v3
-
-dev this feature in a stand alaone fresh extension
-
-1st task button hello world
-
-what event is read more ready...
-yt-navigate-finish???
-
-...
-
-default setting disabled popup
-
-add feature to web store desciption
+inbox.txt
+background message reload
+content listen for 'r' keypress
 
 release
-
-
-https://stackoverflow.com/questions/68329405/javascript-wait-until-element-loaded-on-website-using-chrome-extensiion
-MutationObserver...
-doitwrong
-
-
-use manifest v2 for dev, i need hot reload
+merge branch dev-readmore
