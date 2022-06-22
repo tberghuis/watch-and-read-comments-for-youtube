@@ -16,11 +16,11 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "run_at": "document_end",
-      "css": ["content/css/app.f6b3382c.css"],
+      "css": ["content/app.css"],
       "js": [
         "content.js",
-        "content/js/chunk-vendors.68d845d0.js",
-        "content/js/app.49817596.js"
+        "content/chunk-vendors.js",
+        "content/app.js"
       ]
     }
   ],

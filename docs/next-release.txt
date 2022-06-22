@@ -1,5 +1,16 @@
 
-release.zip
+feature, description order
+
+vite build output static filenames, meh
+
+do it
+
 release
-github push
-merge branch dev-readmore
+git merge and squash
+
+
+test when signed out
+
+
+inbox... WARNING unpacked-dev is out of date
+put comment in manifest.json version
