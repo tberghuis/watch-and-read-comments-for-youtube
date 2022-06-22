@@ -1,0 +1,30 @@
+<template>
+  <v-style>
+    #above-the-fold {
+      display: flex;
+      flex-direction: column;
+    }
+    #above-the-fold #title {
+      order: 1;
+    }
+    #above-the-fold #owner-and-teaser {
+      order: 2;
+    }
+    #above-the-fold #description-and-actions {
+      order: 3;
+    }
+    #description-and-actions #actions {
+      order: 1;
+    }
+    #description-and-actions #description {
+      order: 2;
+    }
+  </v-style>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>

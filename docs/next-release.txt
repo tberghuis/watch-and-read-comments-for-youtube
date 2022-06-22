@@ -1,15 +1,7 @@
 
-feature, description order
-
-vite build output static filenames, meh
-
-do it
-
+zip
 release
 git merge and squash
-
-
-test when signed out
 
 
 inbox... WARNING unpacked-dev is out of date
