@@ -1,0 +1,4 @@
+increment version
+zip
+release
+git merge and squash

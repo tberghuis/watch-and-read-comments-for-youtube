@@ -1,5 +1,0 @@
-
-release.zip
-release
-github push
-merge branch dev-readmore
