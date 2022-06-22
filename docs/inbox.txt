@@ -22,3 +22,4 @@ send message background.js
 
 
 
+vue cli script build, output static filename
