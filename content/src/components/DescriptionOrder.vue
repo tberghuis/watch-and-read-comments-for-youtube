@@ -7,17 +7,17 @@
     #above-the-fold #title {
       order: 1;
     }
-    #above-the-fold #owner-and-teaser {
-      order: 2;
-    }
-    #above-the-fold #description-and-actions {
+    #above-the-fold #top-row {
       order: 3;
     }
-    #description-and-actions #actions {
-      order: 1;
-    }
-    #description-and-actions #description {
+    #above-the-fold #bottom-row {
       order: 2;
+    }
+    #top-row #description {
+      order: 2;
+    }
+    #top-row #actions {
+      order: 1;
     }
   </v-style>
 </template>
