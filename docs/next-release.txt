@@ -3,5 +3,5 @@ zip
 release
 git merge and squash
   git checkout master
-  git merge --squash dev-bugfix
+  git merge --squash dev-description-order-2
   git commit
