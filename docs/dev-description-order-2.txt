@@ -1,6 +1,0 @@
-remove custom css, check order
-redo
-
-only work from release dir
-
-update version manifest
