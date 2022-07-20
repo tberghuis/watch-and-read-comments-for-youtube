@@ -1,7 +1,7 @@
 <template>
   <div id="warc-app" v-if="isOnWatchPage && extensionEnabled && !fullscreen">
     <StaticStyles></StaticStyles>
-    <DescriptionOrder></DescriptionOrder>
+    <!-- <DescriptionOrder></DescriptionOrder> -->
     <DynStyles></DynStyles>
     <ResizeBar></ResizeBar>
     <TabHeadings></TabHeadings>
@@ -10,7 +10,6 @@
 
 <script>
 import StaticStyles from "./components/StaticStyles.vue";
-import DescriptionOrder from "./components/DescriptionOrder.vue";
 import DynStyles from "./components/DynStyles.vue";
 import ResizeBar from "./components/ResizeBar.vue";
 import TabHeadings from "./components/TabHeadings.vue";
@@ -23,7 +22,6 @@ export default {
   name: "App",
   components: {
     StaticStyles,
-    DescriptionOrder,
     DynStyles,
     ResizeBar,
     TabHeadings,
