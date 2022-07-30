@@ -13,3 +13,6 @@ when migrate to release
 
 
 keybinding to reload extension for unpacked-dev
+
+
+does content-vite need to speak to boackgroun.js???
