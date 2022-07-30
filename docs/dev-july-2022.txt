@@ -8,7 +8,8 @@ get it done
 
 
 vite
-
-when finish dev
+when migrate to release
   build content.js, no need to inject
 
+
+keybinding to reload extension for unpacked-dev
