@@ -19,3 +19,7 @@ does content-vite need to speak to boackgroun.js???
   getStorageData
     player width
     extension enabled
+
+
+next task
+  port content to content-vite
