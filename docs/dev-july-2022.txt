@@ -1,0 +1,7 @@
+can i get vite and constent script reload manifest v3 working
+
+fall back to manifest v2 for dev
+
+read code superyoutube
+
+get it done
