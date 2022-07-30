@@ -1,19 +1,43 @@
-var elemDiv = document.createElement("div");
-elemDiv.id = "vue-app";
-document.body.appendChild(elemDiv);
+// var elemDiv = document.createElement("div");
+// elemDiv.id = "vue-app";
+// document.body.appendChild(elemDiv);
 
-// version 6.6.3
-inject("rxjs.js");
-inject("inject.js", true);
+// // version 6.6.3
+// inject("rxjs.js");
+// inject("inject.js", true);
 
-/////////////////// functions
+// /////////////////// functions
 
-function inject(filename, isModule) {
+// function inject(filename, isModule) {
+//   var s = document.createElement("script");
+//   s.src = chrome.runtime.getURL(filename);
+//   if (isModule) {
+//     s.type = "module";
+//   }
+
+//   (document.head || document.documentElement).appendChild(s);
+// }
+
+
+////////////////// start
+
+console.log("hello content");
+
+createVueRoot();
+
+// for release, built content.js does not need to be injected
+devInjectContent();
+
+///////////////// functions
+function devInjectContent() {
   var s = document.createElement("script");
-  s.src = chrome.runtime.getURL(filename);
-  if (isModule) {
-    s.type = "module";
-  }
+  s.src = "http://localhost:5173/src/main.js";
+  s.type = "module";
+  document.head.appendChild(s);
+}
 
-  (document.head || document.documentElement).appendChild(s);
+function createVueRoot() {
+  var elemDiv = document.createElement("div");
+  elemDiv.id = "vue-app";
+  document.body.appendChild(elemDiv);
 }

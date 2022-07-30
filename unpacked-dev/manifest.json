@@ -16,11 +16,8 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "run_at": "document_end",
-      "css": ["content/app.css"],
       "js": [
-        "content.js",
-        "content/chunk-vendors.js",
-        "content/app.js"
+        "content.js"
       ]
     }
   ],
