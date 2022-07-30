@@ -5,3 +5,7 @@ fall back to manifest v2 for dev
 read code superyoutube
 
 get it done
+
+
+vite
+  npm run dev -- --host
