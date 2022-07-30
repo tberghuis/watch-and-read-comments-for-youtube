@@ -8,4 +8,7 @@ get it done
 
 
 vite
-  npm run dev -- --host
+
+when finish dev
+  build content.js, no need to inject
+
