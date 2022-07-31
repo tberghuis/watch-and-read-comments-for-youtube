@@ -1,18 +1,41 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    hello vue content
+  <div id="warc-app" v-if="isOnWatchPage && extensionEnabled && !fullscreen">
+    <StaticStyles></StaticStyles>
+    <!-- <DescriptionOrder></DescriptionOrder> -->
+    <DynStyles></DynStyles>
+    <ResizeBar></ResizeBar>
+    <TabHeadings></TabHeadings>
   </div>
 </template>
 
-<style scoped>
-div {
-  position: fixed;
-  z-index: 10000;
-}
+<script>
+import StaticStyles from "./components/StaticStyles.vue";
+import DynStyles from "./components/DynStyles.vue";
+import ResizeBar from "./components/ResizeBar.vue";
+import TabHeadings from "./components/TabHeadings.vue";
+
+import { isOnWatchPage } from "./state/watch-page.js";
+import { extensionEnabled } from "./state/extension-enabled.js";
+import { fullscreen } from "./state/full-screen.js";
+
+export default {
+  name: "App",
+  components: {
+    StaticStyles,
+    DynStyles,
+    ResizeBar,
+    TabHeadings,
+  },
+
+  setup() {
+    return {
+      isOnWatchPage,
+      extensionEnabled,
+      fullscreen,
+    };
+  },
+};
+</script>
+
+<style>
 </style>
