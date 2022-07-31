@@ -1,9 +1,9 @@
 <template>
   <div id="warc-tab-headings">
-    <button v-on:click="descriptionTabClick" :class="{active: descriptionActive}">description</button>
-    <button v-on:click="commentsTabClick" :class="{active: commentsActive}">comments</button>
-    <button v-on:click="relatedTabClick" :class="{active: relatedActive}">related</button>
-    <button v-on:click="chatTabClick" :class="{active: chatActive}">chat</button>
+    <button v-on:click="descriptionTabClick" :class="{ active: descriptionActive }">description</button>
+    <button v-on:click="commentsTabClick" :class="{ active: commentsActive }">comments</button>
+    <button v-on:click="relatedTabClick" :class="{ active: relatedActive }">related</button>
+    <button v-on:click="chatTabClick" :class="{ active: chatActive }">chat</button>
     <div v-html="sidebarStyles"></div>
   </div>
 </template>
@@ -102,12 +102,11 @@ const TabHeadings = {
       if (this.commentsActive) {
         return `
         <style>
-          #above-the-fold, #related {
+          #below > *:not(#comments) {
             height: 0;
             overflow: hidden;
-          }
-          ytd-live-chat-frame {
-            display: none;
+            margin: 0;
+            padding: 0;
           }
         </style>
       `;
@@ -115,12 +114,11 @@ const TabHeadings = {
       if (this.relatedActive) {
         return `
         <style>
-          #above-the-fold, #comments {
+          #below > *:not(#related) {
             height: 0;
             overflow: hidden;
-          }
-          ytd-live-chat-frame {
-            display: none;
+            margin: 0;
+            padding: 0;
           }
         </style>
       `;
@@ -148,9 +146,11 @@ div {
   top: 80px;
   z-index: 10000;
 }
+
 button {
   font-size: 20px;
 }
+
 button.active {
   background-color: pink;
 }
