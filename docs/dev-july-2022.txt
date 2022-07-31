@@ -42,3 +42,5 @@ fix description order logged out
  zip
  release 
 
+automate releases
+  vite output no hash in file name
