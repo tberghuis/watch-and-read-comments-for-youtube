@@ -7,7 +7,10 @@ const extensionEnabledPromise = getStorageData("extensionEnabled");
 
 initExtensionEnabled();
 waitInjectReady();
-listenPopupMessages();
+
+if (process.env.NODE_ENV !== "development") {
+  listenPopupMessages();
+}
 
 //////////////// functions
 

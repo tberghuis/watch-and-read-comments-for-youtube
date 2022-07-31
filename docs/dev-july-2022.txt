@@ -36,3 +36,7 @@ fix description order when not signed in
 revert temporary dev changes..
 
 merge to master
+
+
+comments, related hode merch
+fix description order logged out
