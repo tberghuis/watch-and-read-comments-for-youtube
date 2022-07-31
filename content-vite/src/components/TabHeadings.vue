@@ -88,7 +88,7 @@ const TabHeadings = {
       if (this.descriptionActive) {
         return `
         <style>
-          #below > *:not(ytd-watch-metadata) {
+          #below > *:not(ytd-watch-metadata), #comment-teaser {
             height: 0;
             overflow: hidden;
             margin: 0;
