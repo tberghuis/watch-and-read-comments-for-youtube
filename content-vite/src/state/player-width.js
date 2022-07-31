@@ -13,7 +13,7 @@ let playerWidthPercent = 0.5;
 
 initPlayerWidth();
 subscribePlayerWidthSubject();
-messageListen();
+// messageListen();
 
 ////////////// functions
 

@@ -2,12 +2,18 @@ import { ref } from "vue";
 import { getStorageData } from "../util.js";
 
 export const extensionEnabled = ref(false);
+// export const extensionEnabled = ref(true);
+
+// TODO remove release
+// global.extensionEnabled = extensionEnabled;
+
+
 
 const extensionEnabledPromise = getStorageData("extensionEnabled");
 
 initExtensionEnabled();
 waitInjectReady();
-listenPopupMessages();
+// listenPopupMessages();
 
 //////////////// functions
 
@@ -26,25 +32,16 @@ async function initExtensionEnabled() {
   }
 
   fireExtensionEnabledEventForInject(extensionEnabled.value);
-
-  // this was firing before inject loaded
-  // setTimeout(function() {
-  //   fireExtensionEnabledEventForInject(extensionEnabled.value);
-  // }, 500);
 }
 
-function listenPopupMessages() {
-  chrome.runtime.onMessage.addListener((msgObj) => {
-    // console.log("listenPopupMessages -> msgObj", msgObj);
-
-    if (msgObj.hasOwnProperty("extensionEnabled")) {
-      extensionEnabled.value = msgObj.extensionEnabled;
-
-      // custom event to inject
-      fireExtensionEnabledEventForInject(msgObj.extensionEnabled);
-    }
-  });
-}
+// function listenPopupMessages() {
+//   chrome.runtime.onMessage.addListener((msgObj) => {
+//     if (msgObj.hasOwnProperty("extensionEnabled")) {
+//       extensionEnabled.value = msgObj.extensionEnabled;
+//       fireExtensionEnabledEventForInject(msgObj.extensionEnabled);
+//     }
+//   });
+// }
 
 // send to inject script
 function fireExtensionEnabledEventForInject(value) {
@@ -53,10 +50,3 @@ function fireExtensionEnabledEventForInject(value) {
   });
   window.dispatchEvent(extensionEnabledEvent);
 }
-
-// run on page load
-// function getExtensionEnabled() {
-//   chrome.runtime.sendMessage("get-extension-enabled", function(response) {
-//     fireExtensionEnabledEventForInject(response);
-//   });
-// }
