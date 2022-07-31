@@ -88,10 +88,11 @@ const TabHeadings = {
       if (this.descriptionActive) {
         return `
         <style>
-          #related.ytd-watch-flexy,
-          #comments.ytd-watch-flexy {
+          #below > *:not(ytd-watch-metadata) {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
           ytd-live-chat-frame {
             display: none;
