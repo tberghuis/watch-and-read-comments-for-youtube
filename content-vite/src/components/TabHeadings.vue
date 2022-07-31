@@ -108,6 +108,9 @@ const TabHeadings = {
             margin: 0;
             padding: 0;
           }
+          ytd-live-chat-frame {
+            display: none;
+          }
         </style>
       `;
       }
@@ -120,15 +123,20 @@ const TabHeadings = {
             margin: 0;
             padding: 0;
           }
+          ytd-live-chat-frame {
+            display: none;
+          }
         </style>
       `;
       }
       if (this.chatActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player) {
+          #below > *:not(#chat) {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
         </style>
       `;
