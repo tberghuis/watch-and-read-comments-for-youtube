@@ -2,18 +2,12 @@ import { ref } from "vue";
 import { getStorageData } from "../util.js";
 
 export const extensionEnabled = ref(false);
-// export const extensionEnabled = ref(true);
-
-// TODO remove release
-// global.extensionEnabled = extensionEnabled;
-
-
 
 const extensionEnabledPromise = getStorageData("extensionEnabled");
 
 initExtensionEnabled();
 waitInjectReady();
-// listenPopupMessages();
+listenPopupMessages();
 
 //////////////// functions
 
@@ -34,14 +28,14 @@ async function initExtensionEnabled() {
   fireExtensionEnabledEventForInject(extensionEnabled.value);
 }
 
-// function listenPopupMessages() {
-//   chrome.runtime.onMessage.addListener((msgObj) => {
-//     if (msgObj.hasOwnProperty("extensionEnabled")) {
-//       extensionEnabled.value = msgObj.extensionEnabled;
-//       fireExtensionEnabledEventForInject(msgObj.extensionEnabled);
-//     }
-//   });
-// }
+function listenPopupMessages() {
+  chrome.runtime.onMessage.addListener((msgObj) => {
+    if (msgObj.hasOwnProperty("extensionEnabled")) {
+      extensionEnabled.value = msgObj.extensionEnabled;
+      fireExtensionEnabledEventForInject(msgObj.extensionEnabled);
+    }
+  });
+}
 
 // send to inject script
 function fireExtensionEnabledEventForInject(value) {
