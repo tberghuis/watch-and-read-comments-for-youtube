@@ -29,3 +29,8 @@ next task
 is <script src=http://some.evil.com/inject.js type=module /> possible?
 well it works for localhost...
 maybe caught in review???
+
+
+fix description order when not signed in
+
+revert temporary dev changes..

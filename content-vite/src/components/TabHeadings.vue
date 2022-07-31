@@ -102,7 +102,7 @@ const TabHeadings = {
       if (this.commentsActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player):not(#comments) {
+          #above-the-fold, #related {
             height: 0;
             overflow: hidden;
           }
@@ -115,7 +115,7 @@ const TabHeadings = {
       if (this.relatedActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player):not(#related) {
+          #above-the-fold, #comments {
             height: 0;
             overflow: hidden;
           }
