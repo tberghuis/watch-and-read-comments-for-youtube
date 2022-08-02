@@ -2,6 +2,8 @@ import { ref } from "vue";
 
 export const isOnWatchPage = ref(checkOnWatchPage());
 
+console.log("isOnWatchPage", isOnWatchPage);
+
 listenNavigateFinish();
 
 ///////////// functions
@@ -14,7 +16,7 @@ function checkOnWatchPage() {
 }
 
 function listenNavigateFinish() {
-  document.body.addEventListener("yt-navigate-finish", function(event) {
+  document.body.addEventListener("yt-navigate-finish", function (event) {
     isOnWatchPage.value = checkOnWatchPage();
   });
 }

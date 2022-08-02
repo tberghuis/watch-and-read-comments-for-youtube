@@ -7,7 +7,10 @@ const extensionEnabledPromise = getStorageData("extensionEnabled");
 
 initExtensionEnabled();
 waitInjectReady();
-listenPopupMessages();
+
+if (process.env.NODE_ENV !== "development") {
+  listenPopupMessages();
+}
 
 //////////////// functions
 
@@ -26,21 +29,12 @@ async function initExtensionEnabled() {
   }
 
   fireExtensionEnabledEventForInject(extensionEnabled.value);
-
-  // this was firing before inject loaded
-  // setTimeout(function() {
-  //   fireExtensionEnabledEventForInject(extensionEnabled.value);
-  // }, 500);
 }
 
 function listenPopupMessages() {
   chrome.runtime.onMessage.addListener((msgObj) => {
-    // console.log("listenPopupMessages -> msgObj", msgObj);
-
     if (msgObj.hasOwnProperty("extensionEnabled")) {
       extensionEnabled.value = msgObj.extensionEnabled;
-
-      // custom event to inject
       fireExtensionEnabledEventForInject(msgObj.extensionEnabled);
     }
   });
@@ -53,10 +47,3 @@ function fireExtensionEnabledEventForInject(value) {
   });
   window.dispatchEvent(extensionEnabledEvent);
 }
-
-// run on page load
-// function getExtensionEnabled() {
-//   chrome.runtime.sendMessage("get-extension-enabled", function(response) {
-//     fireExtensionEnabledEventForInject(response);
-//   });
-// }

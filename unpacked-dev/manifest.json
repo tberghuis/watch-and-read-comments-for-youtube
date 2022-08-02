@@ -1,6 +1,6 @@
 {
   "name": "Comments Sidebar for Youtube",
-  "version": WARNING unpacked-dev is out of date,
+  "version": "0.0.1",
   "manifest_version": 3,
   "description": "Allows you to watch videos and read comments at the same time on Youtube.",
   "icons": {
@@ -11,12 +11,14 @@
   },
   "author": "tberghuis",
   "homepage_url": "https://github.com/tberghuis/watch-and-read-comments-for-youtube",
-  "permissions": ["storage", "http://localhost.com:8080/*"],
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
       "run_at": "document_end",
-      "js": ["content.js"]
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "background": {
@@ -26,14 +28,11 @@
   "action": {
     "default_popup": "popup.html"
   },
+
   "web_accessible_resources": [
     {
       "resources": ["rxjs.js", "inject.js", "dom-elements.js"],
       "matches": ["https://www.youtube.com/*"]
     }
-  ],
-
-  "content_security_policy": {
-    "sandbox": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-  }
+  ]
 }

@@ -16,3 +16,5 @@ app.component("v-style", {
 app.mount("#vue-app");
 
 console.log("hello vue main.js");
+
+console.log("NODE_ENV", process.env.NODE_ENV);

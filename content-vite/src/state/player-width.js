@@ -13,7 +13,10 @@ let playerWidthPercent = 0.5;
 
 initPlayerWidth();
 subscribePlayerWidthSubject();
-messageListen();
+
+if (process.env.NODE_ENV !== "development") {
+  messageListen();
+}
 
 ////////////// functions
 
@@ -55,23 +58,27 @@ function reinitPlayerWidth() {
 
 async function setPlayerWidthPercentStorage() {
   playerWidthPercent = playerWidth.value / document.documentElement.clientWidth;
-  chrome.storage.local.set({ playerWidthPercent }, function() {
+  chrome.storage.local.set({ playerWidthPercent }, function () {
     console.log("playerWidthPercent saved", playerWidthPercent);
   });
 }
 
 function onWindowResize() {
   let resizeTimer;
-  window.onresize = function(event) {
+  window.onresize = function (event) {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
+    resizeTimer = setTimeout(function () {
       reinitPlayerWidth();
     }, 250);
   };
 }
 
 function messageListen() {
-  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  chrome.runtime.onMessage.addListener(function (
+    request,
+    sender,
+    sendResponse
+  ) {
     if (request.message === "reset-divider") {
       playerWidthPercent = 0.5;
 

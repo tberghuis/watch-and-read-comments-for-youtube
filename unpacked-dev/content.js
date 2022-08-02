@@ -1,28 +1,28 @@
-console.log("hello content.js");
+console.log("hello content");
 
-var elemDiv = document.createElement("div");
-elemDiv.id = "vue-app";
-document.body.appendChild(elemDiv);
-
-// This only to happen in content.dev.js
-evalVueScripts("https://localhost:8080/js/chunk-vendors.js");
-evalVueScripts("https://localhost:8080/js/app.js");
+createVueRoot();
 
 // version 6.6.3
 inject("rxjs.js");
 inject("inject.js", true);
 
-/////////////////// functions
+// for release, built content.js does not need to be injected
+devInjectContent();
 
-function evalVueScripts(url) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      var resp = eval(xhr.responseText);
-    }
-  };
-  xhr.send();
+///////////////// functions
+
+function devInjectContent() {
+  console.log("REMOVE ME RELEASE VERSION, DEV ONLY");
+  var s = document.createElement("script");
+  s.src = "http://localhost:5173/src/main.js";
+  s.type = "module";
+  document.head.appendChild(s);
+}
+
+function createVueRoot() {
+  var elemDiv = document.createElement("div");
+  elemDiv.id = "vue-app";
+  document.body.appendChild(elemDiv);
 }
 
 function inject(filename, isModule) {

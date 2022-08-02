@@ -1,9 +1,9 @@
 <template>
   <div id="warc-tab-headings">
-    <button v-on:click="descriptionTabClick" :class="{active: descriptionActive}">description</button>
-    <button v-on:click="commentsTabClick" :class="{active: commentsActive}">comments</button>
-    <button v-on:click="relatedTabClick" :class="{active: relatedActive}">related</button>
-    <button v-on:click="chatTabClick" :class="{active: chatActive}">chat</button>
+    <button v-on:click="descriptionTabClick" :class="{ active: descriptionActive }">description</button>
+    <button v-on:click="commentsTabClick" :class="{ active: commentsActive }">comments</button>
+    <button v-on:click="relatedTabClick" :class="{ active: relatedActive }">related</button>
+    <button v-on:click="chatTabClick" :class="{ active: chatActive }">chat</button>
     <div v-html="sidebarStyles"></div>
   </div>
 </template>
@@ -88,10 +88,11 @@ const TabHeadings = {
       if (this.descriptionActive) {
         return `
         <style>
-          #related.ytd-watch-flexy,
-          #comments.ytd-watch-flexy {
+          #below > *:not(ytd-watch-metadata), #comment-teaser {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
           ytd-live-chat-frame {
             display: none;
@@ -102,9 +103,11 @@ const TabHeadings = {
       if (this.commentsActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player):not(#comments) {
+          #below > *:not(#comments) {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
           ytd-live-chat-frame {
             display: none;
@@ -115,9 +118,11 @@ const TabHeadings = {
       if (this.relatedActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player):not(#related) {
+          #below > *:not(#related) {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
           ytd-live-chat-frame {
             display: none;
@@ -128,9 +133,11 @@ const TabHeadings = {
       if (this.chatActive) {
         return `
         <style>
-          #primary-inner.ytd-watch-flexy > *:not(#player) {
+          #below > *:not(#chat) {
             height: 0;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
           }
         </style>
       `;
@@ -148,9 +155,11 @@ div {
   top: 80px;
   z-index: 10000;
 }
+
 button {
   font-size: 20px;
 }
+
 button.active {
   background-color: pink;
 }
