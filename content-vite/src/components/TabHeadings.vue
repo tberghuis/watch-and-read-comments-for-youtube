@@ -3,6 +3,7 @@
     <button v-on:click="descriptionTabClick" :class="{ active: descriptionActive }">description</button>
     <button v-on:click="commentsTabClick" :class="{ active: commentsActive }">comments</button>
     <button v-on:click="relatedTabClick" :class="{ active: relatedActive }">related</button>
+    <button v-on:click="playlistTabClick" :class="{ active: playlistActive }">playlist</button>
     <button v-on:click="chatTabClick" :class="{ active: chatActive }">chat</button>
     <div v-html="sidebarStyles"></div>
   </div>
@@ -23,10 +24,12 @@ const TabHeadings = {
       descriptionActive: true,
       commentsActive: false,
       relatedActive: false,
+      playlistActive: false,
       chatActive: false,
       descriptionScrollTop: 0,
       commentsScrollTop: 0,
       relatedScrollTop: 0,
+      playlistScrollTop: 0,
       chatScrollTop: 0,
     };
   },
@@ -42,6 +45,9 @@ const TabHeadings = {
       if (this.relatedActive) {
         this.relatedScrollTop = scrollTop;
       }
+      if (this.playlistActive) {
+        this.playlistScrollTop = scrollTop;
+      }
       if (this.chatActive) {
         this.chatScrollTop = scrollTop;
       }
@@ -51,6 +57,7 @@ const TabHeadings = {
       this.commentsActive = false;
       this.relatedActive = false;
       this.chatActive = false;
+      this.playlistActive = false;
       this.descriptionActive = true;
       scrollTo(this.descriptionScrollTop);
     },
@@ -59,6 +66,7 @@ const TabHeadings = {
       this.relatedActive = false;
       this.descriptionActive = false;
       this.chatActive = false;
+      this.playlistActive = false;
       this.commentsActive = true;
       scrollTo(this.commentsScrollTop);
 
@@ -71,14 +79,27 @@ const TabHeadings = {
       this.commentsActive = false;
       this.descriptionActive = false;
       this.chatActive = false;
+      this.playlistActive = false;
       this.relatedActive = true;
       scrollTo(this.relatedScrollTop);
     },
+
+    playlistTabClick() {
+      this.saveScrollTop();
+      this.commentsActive = false;
+      this.descriptionActive = false;
+      this.chatActive = false;
+      this.relatedActive = false;
+      this.playlistActive = true;
+      scrollTo(this.playlistScrollTop);
+    },
+
     chatTabClick() {
       this.saveScrollTop();
       this.commentsActive = false;
       this.descriptionActive = false;
       this.relatedActive = false;
+      this.playlistActive = false;
       this.chatActive = true;
       scrollTo(this.relatedScrollTop);
     },
@@ -130,6 +151,23 @@ const TabHeadings = {
         </style>
       `;
       }
+
+      if (this.playlistActive) {
+        return `
+        <style>
+          #below > *:not(#playlist) {
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+          }
+          ytd-live-chat-frame {
+            display: none;
+          }
+        </style>
+      `;
+      }
+
       if (this.chatActive) {
         return `
         <style>
@@ -158,6 +196,9 @@ div {
 
 button {
   font-size: 20px;
+  border: solid 1px rgb(118, 118, 118);
+  margin-right: 5px;
+  background-color: rgb(239, 239, 239);
 }
 
 button.active {

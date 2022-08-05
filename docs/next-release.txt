@@ -1,4 +1,6 @@
 increment version
+build
+test release
 zip
 release
 git merge and squash
