@@ -15,7 +15,6 @@ initOrig();
 subscribeExtensionEnabledSubject();
 listenCustomEvents();
 listenFullscreen();
-expandDescriptionWhenEnabled();
 
 /////////////////// functions
 
@@ -115,33 +114,4 @@ async function listenFullscreen() {
 
 function loadComments() {
   document.querySelector("yt-visibility-monitor").markDirty();
-}
-
-function expandDescription() {
-  const expander = document.querySelector(
-    "ytd-text-inline-expander#description-inline-expander"
-  );
-  console.log("expander", expander);
-
-  if (expander) {
-    expander.setAttribute("is-expanded", "");
-  }
-}
-
-function expandDescriptionWhenEnabled() {
-  extensionEnabledSubject.subscribe({
-    next: (v) => {
-      if (v) {
-        document.body.addEventListener(
-          "yt-page-data-updated",
-          expandDescription
-        );
-      } else {
-        document.body.removeEventListener(
-          "yt-page-data-updated",
-          expandDescription
-        );
-      }
-    },
-  });
 }
