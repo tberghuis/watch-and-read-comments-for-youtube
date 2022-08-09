@@ -109,7 +109,7 @@ const TabHeadings = {
       if (this.descriptionActive) {
         return `
         <style>
-          #below > *:not(ytd-watch-metadata), #comment-teaser {
+          #below > *:not(.watch-active-metadata), #comment-teaser {
             height: 0;
             overflow: hidden;
             margin: 0;
@@ -199,6 +199,7 @@ button {
   border: solid 1px rgb(118, 118, 118);
   margin-right: 5px;
   background-color: rgb(239, 239, 239);
+  cursor: pointer;
 }
 
 button.active {
