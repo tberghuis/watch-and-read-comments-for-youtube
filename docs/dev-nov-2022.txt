@@ -3,3 +3,11 @@ fix description needs br
   css after content BR???
   or some sort of flexbox fix
 transcript tab
+
+1, get dev env working...
+refactoring in small passes
+
+donate button???
+
+test signed out
+test dark mode
