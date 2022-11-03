@@ -1,7 +1,7 @@
 ###########scope
 fix z-index .warc-tab-headings
-fix #top-row
-fix show transcript in description tab
+#top-row to show on 2 rows
+show transcript in description tab
 #################
 
 comment zindex issue
