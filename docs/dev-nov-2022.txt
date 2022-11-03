@@ -4,6 +4,6 @@ fix #top-row
 fix show transcript in description tab
 #################
 
-comment and close zindex issue
+comment zindex issue
 
 increment version and release
