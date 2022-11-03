@@ -23,3 +23,6 @@ send message background.js
 
 
 vue cli script build, output static filename
+
+
+fix darkmode divider line make white

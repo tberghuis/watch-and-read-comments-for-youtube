@@ -1,17 +1,16 @@
-fix zindex
-fix description needs br
-  css after content BR???
-  or some sort of flexbox fix
-transcript tab
-
-1, get dev env working...
-refactoring in small passes
-
-donate button???
+###########scope
+fix z-index .warc-tab-headings
+fix #top-row
+fix show transcript in description tab
+#################
 
 test signed out
 test dark mode
 
+test chrome, not beta version
+
 auto expand description more
 
 comment and close zindex issue
+
+increment version and release

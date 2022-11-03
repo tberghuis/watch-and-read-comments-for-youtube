@@ -52,7 +52,6 @@
     #top-row {
       display: block !important;
     }
-
   </v-style>
 </template>
 

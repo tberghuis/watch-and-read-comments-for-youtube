@@ -109,7 +109,7 @@ const TabHeadings = {
       if (this.descriptionActive) {
         return `
         <style>
-          #below > *:not(.watch-active-metadata), #comment-teaser {
+          #below > *:not(.watch-active-metadata, #panels), #comment-teaser {
             height: 0;
             overflow: hidden;
             margin: 0;
@@ -191,7 +191,7 @@ export default TabHeadings;
 div {
   position: fixed;
   top: 80px;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 button {
