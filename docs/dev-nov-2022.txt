@@ -1,0 +1,9 @@
+###########scope
+fix z-index .warc-tab-headings
+fix #top-row
+fix show transcript in description tab
+#################
+
+comment and close zindex issue
+
+increment version and release
