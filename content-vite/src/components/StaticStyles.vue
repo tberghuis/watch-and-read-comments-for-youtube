@@ -49,6 +49,10 @@
     ytd-expander.ytd-video-secondary-info-renderer {
       --ytd-expander-collapsed-height: '' !important;
     }
+    #top-row {
+      display: block !important;
+    }
+
   </v-style>
 </template>
 

@@ -11,3 +11,7 @@ donate button???
 
 test signed out
 test dark mode
+
+auto expand description more
+
+comment and close zindex issue
