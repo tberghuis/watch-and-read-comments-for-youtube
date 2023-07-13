@@ -171,7 +171,7 @@ const TabHeadings = {
       if (this.chatActive) {
         return `
         <style>
-          #below > *:not(#chat) {
+          #below > *:not(#chat-container) {
             height: 0;
             overflow: hidden;
             margin: 0;
