@@ -2,9 +2,7 @@ console.log("hello content");
 
 createVueRoot();
 
-// version 6.6.3
-inject("rxjs.js");
-inject("inject.js", true);
+inject("inject-vite.js");
 
 // for release, built content.js does not need to be injected
 devInjectContent();

@@ -31,7 +31,7 @@
 
   "web_accessible_resources": [
     {
-      "resources": ["rxjs.js", "inject.js", "dom-elements.js"],
+      "resources": ["inject-vite.js"],
       "matches": ["https://www.youtube.com/*"]
     }
   ]
