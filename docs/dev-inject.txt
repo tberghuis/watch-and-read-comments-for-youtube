@@ -4,3 +4,6 @@ move inject.js to inject-vite folder
 this is needed to load rxjs synchronous before inject.js code
 
 create content-dev.js with diff for dev env
+
+version
+release.zip
