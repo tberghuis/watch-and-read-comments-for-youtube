@@ -5,5 +5,6 @@ this is needed to load rxjs synchronous before inject.js code
 
 create content-dev.js with diff for dev env
 
+manifest.json remove resources
 version
 release.zip
