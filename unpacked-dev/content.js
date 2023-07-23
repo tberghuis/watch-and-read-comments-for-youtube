@@ -4,18 +4,7 @@ createVueRoot();
 
 inject("inject-vite.js");
 
-// for release, built content.js does not need to be injected
-devInjectContent();
-
 ///////////////// functions
-
-function devInjectContent() {
-  console.log("REMOVE ME RELEASE VERSION, DEV ONLY");
-  var s = document.createElement("script");
-  s.src = "http://localhost:5173/src/main.js";
-  s.type = "module";
-  document.head.appendChild(s);
-}
 
 function createVueRoot() {
   var elemDiv = document.createElement("div");

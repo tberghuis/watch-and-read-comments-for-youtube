@@ -17,7 +17,8 @@
       "matches": ["https://www.youtube.com/*"],
       "run_at": "document_end",
       "js": [
-        "content.js"
+        "content.js",
+        "content-dev.js"
       ]
     }
   ],
