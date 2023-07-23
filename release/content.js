@@ -3,8 +3,10 @@ elemDiv.id = "vue-app";
 document.body.appendChild(elemDiv);
 
 // version 6.6.3
-inject("rxjs.js");
-inject("inject.js", true);
+// inject("rxjs.js");
+// inject("inject.js", true);
+
+inject("inject-vite.js");
 
 /////////////////// functions
 
