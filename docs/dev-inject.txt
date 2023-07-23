@@ -1,5 +1,2 @@
 
-upload
-git merge
-
-update github issue
+update github issue after review pass
