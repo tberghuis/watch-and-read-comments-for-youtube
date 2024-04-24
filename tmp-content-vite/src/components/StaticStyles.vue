@@ -52,6 +52,9 @@
     #top-row {
       display: block !important;
     }
+    #primary-inner {
+      margin-top: 120px !important;
+    }
   </v-style>
 </template>
 
